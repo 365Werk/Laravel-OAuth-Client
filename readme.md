@@ -18,7 +18,7 @@ $ composer require werk365/laraveloauthclient
 
 Publish the config
 ```bash
-$ php artisan vendor:publish --provider="Werk365\LaravelOauthClient\LaravelOAuthClientServiceProvider"
+$ php artisan vendor:publish --provider="Werk365\LaravelOAuthClient\LaravelOAuthClientServiceProvider"
 ```
 Configure the config using the provided example.
 
