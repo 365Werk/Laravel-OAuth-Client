@@ -1,16 +1,17 @@
 {
     "name": "werk365/laraveloauthclient",
-    "description": ":package_description",
-    "license": "license",
+    "description": "Multi purpose OAuth client to use in Laravel",
+    "license": "MIT",
+    "version": "1.0.0-beta",
     "authors": [
         {
-            "name": "author name",
-            "email": "author email",
-            "homepage": "author homepage"
+            "name": "Hergen Dillema",
+            "email": "h.dillema@365werk.nl",
+            "homepage": "https://365werk.nl"
         }
     ],
-    "homepage": "https://github.com/werk365/laraveloauthclient",
-    "keywords": ["Laravel", "LaravelOAuthClient"],
+    "homepage": "https://github.com/365Werk/Laravel-OAuth-Client",
+    "keywords": ["Laravel", "LaravelOAuthClient", "OAuth", "OAuthClient"],
     "require": {
         "illuminate/support": "~7|~8"
     },
@@ -32,10 +33,7 @@
         "laravel": {
             "providers": [
                 "Werk365\\LaravelOAuthClient\\LaravelOAuthClientServiceProvider"
-            ],
-            "aliases": {
-                "LaravelOAuthClient": "Werk365\\LaravelOAuthClient\\Facades\\LaravelOAuthClient"
-            }
+            ]
         }
     }
 }
