@@ -85,7 +85,7 @@ class LaravelOAuthClient
             'client_id' => $this->vendors[$this->vendor]['client_id'],
             'client_secret' => $this->vendors[$this->vendor]['client_secret'],
             'redirect_uri' => $this->vendors[$this->vendor]['redirect_uri'],
-            'grant_type' => 'authorization_code',
+            'grant_type' => $this->vendors[$this->vendor][$type]['grant_type'],
         ];
 
         if ($type == 'token') {
@@ -93,6 +93,8 @@ class LaravelOAuthClient
         } elseif ($type == 'refresh') {
             $body['refresh_token'] = $this->refresh_token;
         }
+
+        $token = [];
 
         switch ($this->vendors[$this->vendor][$type]['auth']) {
             case 'body':
@@ -117,11 +119,17 @@ class LaravelOAuthClient
                         ->json();
                 }
         }
+
         $fields = [];
 
-        foreach ($this->vendors[$this->vendor][$type]['fields'] as $key => $field) {
-            $fields[$field] = $token[$field];
+        if(is_array($this->vendors[$this->vendor][$type]['fields'])){
+            foreach ($this->vendors[$this->vendor][$type]['fields'] as $key => $field) {
+                $fields[$field] = $token[$field];
+            }
+        } else if ($this->vendors[$this->vendor][$type]['fields'] == "*") {
+            $fields = $token;
         }
+
 
         return $fields ?? null;
     }
