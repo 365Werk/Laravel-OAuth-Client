@@ -65,11 +65,7 @@ return [
             'url' => 'https://login.vendor.example.com/oauth2/token',
             'method' => 'POST',
             'grant_type' => 'authorization_code',
-            'fields' => [
-                'access_token' => 'access_token',
-                'expires_in' => 'expires_in',
-                'refresh_token' => 'refresh_token',
-            ],
+            'fields' => "*",
             'auth' => 'body',
         ],
         'info' => [
