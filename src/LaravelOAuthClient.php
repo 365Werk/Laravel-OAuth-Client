@@ -20,24 +20,40 @@ class LaravelOAuthClient
         $this->vendor = $vendor ?? null;
     }
 
-    public function setVendor($vendor)
+    public function setVendor($vendor): self
     {
         $this->vendor = $vendor;
+
+        return $this;
     }
 
-    public function setCode($code)
+    public function setCode($code): self
     {
         $this->code = $code;
+
+        return $this;
     }
 
-    public function setRefreshToken($refresh_token)
+    public function setRedirectUri($redirect_uri, $vendor = null): self
+    {
+        $vendor = $vendor??$this->vendor;
+        $this->vendors[$vendor]['redirect_uri'] = $redirect_uri;
+
+        return $this;
+    }
+
+    public function setRefreshToken($refresh_token): self
     {
         $this->refresh_token = $refresh_token;
+
+        return $this;
     }
 
-    public function setAccessToken($access_token)
+    public function setAccessToken($access_token): self
     {
         $this->access_token = $access_token;
+
+        return $this;
     }
 
     public function getToken($code = null): array
