@@ -136,14 +136,14 @@ class LaravelOAuthClient
                 }
         }
 
-        $fields = [];
+        $fields = clone $token;
 
         if (is_array($this->vendors[$this->vendor][$type]['fields'])) {
             foreach ($this->vendors[$this->vendor][$type]['fields'] as $key => $field) {
-                $fields[$field] = $token[$field];
+                if(isset($token[$field])){
+                    $fields[$field] = $token[$field];
+                }
             }
-        } elseif ($this->vendors[$this->vendor][$type]['fields'] == '*') {
-            $fields = $token;
         }
 
         return $fields ?? null;
