@@ -36,7 +36,7 @@ class LaravelOAuthClient
 
     public function setRedirectUri($redirect_uri, $vendor = null): self
     {
-        $vendor = $vendor??$this->vendor;
+        $vendor = $vendor ?? $this->vendor;
         $this->vendors[$vendor]['redirect_uri'] = $redirect_uri;
 
         return $this;
