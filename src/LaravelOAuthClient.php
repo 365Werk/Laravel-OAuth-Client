@@ -17,12 +17,16 @@ class LaravelOAuthClient
     public function __construct($vendor = null)
     {
         $this->vendors = config('laraveloauthclient');
-        $this->vendor = $vendor ?? null;
+        foreach($this->vendors as $vendor){
+            $lower_vendor = strtolower($vendor);
+            $this->vendors[$lower_vendor] = $this->vendors[$vendor];
+        }
+        $this->vendor = strtolower($vendor) ?? null;
     }
 
     public function setVendor($vendor): self
     {
-        $this->vendor = $vendor;
+        $this->vendor = strtolower($vendor);
 
         return $this;
     }
