@@ -140,8 +140,8 @@ class LaravelOAuthClient
 
         if (is_array($this->vendors[$this->vendor][$type]['fields'])) {
             foreach ($this->vendors[$this->vendor][$type]['fields'] as $key => $field) {
-                if (isset($token[$field])) {
-                    $fields[$field] = $token[$field];
+                if (isset($token[$key])) {
+                    $fields[$field] = $token[$key];
                 }
             }
         }

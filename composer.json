@@ -2,7 +2,7 @@
     "name": "werk365/laraveloauthclient",
     "description": "Multi purpose OAuth client to use in Laravel",
     "license": "MIT",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "authors": [
         {
             "name": "Hergen Dillema",
